@@ -11,8 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.imdbmoviesapp.presentation.movies.nowplaying.MovieViewModel
+import com.example.imdbmoviesapp.presentation.movies.nowplaying.NowPlayingScreen
 import com.example.imdbmoviesapp.ui.theme.IMDBMoviesAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             IMDBMoviesAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    NowPlayingScreen(Modifier.padding(innerPadding).fillMaxSize())
                 }
             }
         }
