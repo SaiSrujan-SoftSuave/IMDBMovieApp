@@ -2,6 +2,7 @@ package com.example.imdbmoviesapp.data.repository
 
 import com.example.imdbmoviesapp.data.remote.api.MoviesApi
 import com.example.imdbmoviesapp.data.remote.dto.MovieData
+import com.example.imdbmoviesapp.data.remote.dto.MovieDetailDto
 import com.example.imdbmoviesapp.domain.repository.MovieRepository
 import javax.inject.Inject
 
@@ -20,5 +21,9 @@ class MovieRepositoryImpl @Inject constructor(private val moviesApi: MoviesApi) 
 
     override suspend fun getUpcoming(): MovieData {
         return moviesApi.getUpcoming()
+    }
+
+    override suspend fun getMovieDetails(movieId: Int): MovieDetailDto {
+        return moviesApi.getDetailsById(movieId)
     }
 }

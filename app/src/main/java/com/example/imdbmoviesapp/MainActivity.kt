@@ -4,17 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.imdbmoviesapp.presentation.movies.nowplaying.MovieViewModel
-import com.example.imdbmoviesapp.presentation.movies.nowplaying.NowPlayingScreen
-import com.example.imdbmoviesapp.ui.theme.IMDBMoviesAppTheme
+import com.example.imdbmoviesapp.presentation.home_screen.HomeScreen
+import com.example.imdbmoviesapp.presentation.theme.IMDBMoviesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import dev.olshevski.navigation.reimagined.hilt.hiltViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -23,9 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             IMDBMoviesAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NowPlayingScreen(Modifier.padding(innerPadding).fillMaxSize())
-                }
+            HomeScreen(viewModel = hiltViewModel())
             }
         }
     }

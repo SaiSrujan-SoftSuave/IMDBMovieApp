@@ -21,6 +21,7 @@ object RetrofitModule {
     fun provideRetrofitInstance(): Retrofit {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
         val client = OkHttpClient.Builder()
             .addInterceptor(ApiKeyInterceptor())
             .addInterceptor(logging)

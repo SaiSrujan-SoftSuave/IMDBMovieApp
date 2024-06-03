@@ -4,7 +4,6 @@ import com.example.imdbmoviesapp.core.NetworkResult
 import com.example.imdbmoviesapp.data.remote.dto.MovieData
 import com.example.imdbmoviesapp.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
